@@ -1,11 +1,16 @@
-import React from 'react';
+import React  from 'react';
+
 
 var App = React.createClass({
     render: function() {
         return (
-            <h1>Hello World</h1>
+            <div className="claudio-pizarro">
+                <Header/>
+                <h1> APP Component</h1>
+                <Footer/>
+            </div>
         )
     }
 });
 
-export default App; 
+export default App;
