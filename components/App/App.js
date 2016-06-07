@@ -2,6 +2,7 @@ import React        from 'react';
 import Header       from '../../components/Header/Header';
 import Menu         from '../../components/Menu/Menu';
 import Footer       from '../../components/Footer/Footer';
+import Styles       from '../App/css/App.less';
 
 
 var App = React.createClass({
