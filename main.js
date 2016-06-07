@@ -3,16 +3,17 @@ import ReactDOM                         from 'react-dom';
 import { render }                       from 'react-dom';
 import { Router, Route, hashHistory }   from 'react-router';
 
-import Home                             from './views/Home';
-import About                            from './views/About';
-import Stats                            from './views/Stats';
+import App                              from './components/App/App';
+import About                            from './components/About/About';
+import Stats                            from './components/Stats/Stats';
 
 
 
 render((
     <Router history={hashHistory}>
-        <Route path="/" component={Home}/>
-        <Route path="/stats" component={Stats}/>
-        <Route path="/about" component={About}/>
+        <Route path="/" component={App}>
+            <Route path="/stats" component={Stats}/>
+            <Route path="/about" component={About}/>
+        </Route>
     </Router>
 ), document.getElementById('react-container'));

@@ -56,15 +56,15 @@
 
 	var _reactRouter = __webpack_require__(168);
 
-	var _Home = __webpack_require__(229);
+	var _App = __webpack_require__(229);
 
-	var _Home2 = _interopRequireDefault(_Home);
+	var _App2 = _interopRequireDefault(_App);
 
-	var _About = __webpack_require__(232);
+	var _About = __webpack_require__(234);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Stats = __webpack_require__(233);
+	var _Stats = __webpack_require__(235);
 
 	var _Stats2 = _interopRequireDefault(_Stats);
 
@@ -73,9 +73,12 @@
 	(0, _reactDom.render)(_react2.default.createElement(
 	    _reactRouter.Router,
 	    { history: _reactRouter.hashHistory },
-	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/stats', component: _Stats2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default })
+	    _react2.default.createElement(
+	        _reactRouter.Route,
+	        { path: '/', component: _App2.default },
+	        _react2.default.createElement(_reactRouter.Route, { path: '/stats', component: _Stats2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default })
+	    )
 	), document.getElementById('react-container'));
 
 /***/ },
@@ -25871,52 +25874,177 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Footer = __webpack_require__(230);
-
-	var _Footer2 = _interopRequireDefault(_Footer);
-
-	var _Header = __webpack_require__(231);
+	var _Header = __webpack_require__(230);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
+	var _Menu = __webpack_require__(231);
+
+	var _Menu2 = _interopRequireDefault(_Menu);
+
+	var _Footer = __webpack_require__(233);
+
+	var _Footer2 = _interopRequireDefault(_Footer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Home = _react2.default.createClass({
-	    displayName: 'Home',
+	var App = _react2.default.createClass({
+	    displayName: 'App',
 
 	    getInitialState: function getInitialState() {
 
 	        return {
 	            currentSeason: 'season18',
-	            currentViewport: 'smalls'
+	            currentViewport: 'regular'
 	        };
 	    },
 	    componentDidMount: function componentDidMount() {
 	        console.log(this.state);
 	    },
+
+
 	    render: function render() {
 	        return _react2.default.createElement(
 	            'div',
-	            { className: 'home' },
-	            _react2.default.createElement(_Footer2.default, null),
-	            _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    'h1',
-	                    null,
-	                    'Home Page'
-	                )
-	            ),
-	            _react2.default.createElement(_Header2.default, null)
+	            { className: 'claudio-pizarro' },
+	            _react2.default.createElement(_Header2.default, { currentSeason: this.state.currentSeason }),
+	            _react2.default.createElement(_Menu2.default, null),
+	            this.props.children,
+	            _react2.default.createElement(_Footer2.default, null)
 	        );
 	    }
 	});
 
-	exports.default = Home;
+	exports.default = App;
 
 /***/ },
 /* 230 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Header = _react2.default.createClass({
+	    displayName: "Header",
+	    render: function render() {
+	        return _react2.default.createElement(
+	            "div",
+	            { className: "component component-header" },
+	            _react2.default.createElement(
+	                "h1",
+	                null,
+	                this.props.currentSeason
+	            )
+	        );
+	    }
+	});
+
+	exports.default = Header;
+
+/***/ },
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _NavLink = __webpack_require__(232);
+
+	var _NavLink2 = _interopRequireDefault(_NavLink);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Menu = _react2.default.createClass({
+	    displayName: 'Menu',
+
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            { className: this.props.currentClub + ' component component-menu' },
+	            _react2.default.createElement(
+	                'ul',
+	                null,
+	                _react2.default.createElement(
+	                    'li',
+	                    null,
+	                    _react2.default.createElement(
+	                        _NavLink2.default,
+	                        { to: '/', onlyActiveOnIndex: true },
+	                        'HOME'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'li',
+	                    null,
+	                    _react2.default.createElement(
+	                        _NavLink2.default,
+	                        { to: '/stats' },
+	                        'STATS'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'li',
+	                    null,
+	                    _react2.default.createElement(
+	                        _NavLink2.default,
+	                        { to: '/about' },
+	                        'ABOUT'
+	                    )
+	                )
+	            )
+	        );
+	    }
+	});
+
+	exports.default = Menu;
+
+/***/ },
+/* 232 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(168);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var NavLink = _react2.default.createClass({
+	    displayName: 'NavLink',
+	    render: function render() {
+	        return _react2.default.createElement(_reactRouter.Link, _extends({}, this.props, { activeClassName: 'active' }));
+	    }
+	});
+
+	exports.default = NavLink;
+
+/***/ },
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25949,40 +26077,7 @@
 	exports.default = Footer;
 
 /***/ },
-/* 231 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Header = _react2.default.createClass({
-	    displayName: "Header",
-	    render: function render() {
-	        return _react2.default.createElement(
-	            "div",
-	            { className: "component component-header" },
-	            _react2.default.createElement(
-	                "h1",
-	                null,
-	                "Component Header"
-	            )
-	        );
-	    }
-	});
-
-	exports.default = Header;
-
-/***/ },
-/* 232 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25995,45 +26090,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Footer = __webpack_require__(230);
-
-	var _Footer2 = _interopRequireDefault(_Footer);
-
-	var _Header = __webpack_require__(231);
-
-	var _Header2 = _interopRequireDefault(_Header);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var About = _react2.default.createClass({
 	    displayName: 'About',
-
-	    getInitialState: function getInitialState() {
-
-	        return {
-	            currentSeason: 'season18',
-	            currentViewport: 'big'
-	        };
-	    },
-
-	    componentDidMount: function componentDidMount() {
-	        console.log(this.state);
-	    },
 	    render: function render() {
 	        return _react2.default.createElement(
 	            'div',
-	            { className: 'About' },
-	            _react2.default.createElement(_Footer2.default, null),
+	            { className: this.props.currentClub + ' component component-about' },
 	            _react2.default.createElement(
-	                'div',
+	                'h1',
 	                null,
-	                _react2.default.createElement(
-	                    'h1',
-	                    null,
-	                    'About Page'
-	                )
-	            ),
-	            _react2.default.createElement(_Header2.default, null)
+	                'About component'
+	            )
 	        );
 	    }
 	});
@@ -26041,7 +26110,7 @@
 	exports.default = About;
 
 /***/ },
-/* 233 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26054,44 +26123,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Footer = __webpack_require__(230);
-
-	var _Footer2 = _interopRequireDefault(_Footer);
-
-	var _Header = __webpack_require__(231);
-
-	var _Header2 = _interopRequireDefault(_Header);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Stats = _react2.default.createClass({
 	    displayName: 'Stats',
-
-	    getInitialState: function getInitialState() {
-
-	        return {
-	            currentSeason: 'season18',
-	            currentViewport: 'regular'
-	        };
-	    },
-	    componentDidMount: function componentDidMount() {
-	        console.log(this.state);
-	    },
 	    render: function render() {
 	        return _react2.default.createElement(
 	            'div',
-	            { className: 'stats' },
-	            _react2.default.createElement(_Footer2.default, null),
+	            { className: this.currentClub + ' component component-stats' },
 	            _react2.default.createElement(
-	                'div',
+	                'h1',
 	                null,
-	                _react2.default.createElement(
-	                    'h1',
-	                    null,
-	                    'Stats Page'
-	                )
-	            ),
-	            _react2.default.createElement(_Header2.default, null)
+	                'STATS component'
+	            )
 	        );
 	    }
 	});
