@@ -1,5 +1,8 @@
 module.exports = {
-    entry: "./main.js",
+    entry: [
+        "./main.js"
+    ],
+
     output: {
         filename: "public/bundle.js"
     },
@@ -12,7 +15,7 @@ module.exports = {
             {
                 test    : /\.jsx?$/,
                 exclude : /(node_modules)/,
-                loader  : "babel-loader"
+                loader  : "babel-loader?presets[]=es2015&presets[]=react"
             },
             {
                 test    : /\.less$/,

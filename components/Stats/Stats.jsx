@@ -1,11 +1,23 @@
 import React        from 'react';
 
+import GlobalApp    from 'ampersand-app';
+
 
 var Stats = React.createClass({
+    updateSeason :function() {
+        GlobalApp.trigger('updateSeason', {currentSeason: '2015'});
+
+    },
+    componentDidMount() {
+
+
+
+    },
+    
     render() {
         return(
-            <div className={this.currentClub + ' component component-stats'}>
-                <h1>STATS component</h1>
+            <div className={' component component-stats'}>
+                <h1 onClick={this.updateSeason}>STATS component</h1>
             </div>
         );
     }

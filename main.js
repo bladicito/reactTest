@@ -6,8 +6,9 @@ import { Router, Route, hashHistory }   from 'react-router';
 import App                              from './components/App/App';
 import About                            from './components/About/About';
 import Stats                            from './components/Stats/Stats';
+import GlobalApp                        from 'ampersand-app';
 
-
+window.GlobalApp = GlobalApp;
 
 render((
     <Router history={hashHistory}>

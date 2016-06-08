@@ -5,7 +5,7 @@ var Header = React.createClass( {
     render() {
         return (
             <div className="component component-header">
-                <h1>Header Component</h1>
+                <h1>Header Component {this.props.currentSeason}</h1>
             </div>
         )
     }
