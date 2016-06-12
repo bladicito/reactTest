@@ -1,14 +1,16 @@
-import React        from 'react';
-import Header       from '../../components/Header/Header';
-import Menu         from '../../components/Menu/Menu';
-import Footer       from '../../components/Footer/Footer';
-import Styles       from '../App/css/App.less';
-import GlobalApp    from 'ampersand-app';
-
+import React            from 'react';
+import Header           from '../../components/Header/Header';
+import Menu             from '../../components/Menu/Menu';
+import Footer           from '../../components/Footer/Footer';
+import Styles           from '../App/css/App.less';
+import globalApp        from 'ampersand-app';
+import ampersandMixin   from 'ampersand-react-mixin';
 
 
 
 var App = React.createClass({
+    mixins : [ampersandMixin],
+
     getInitialState: function() {
 
         return {
@@ -30,7 +32,7 @@ var App = React.createClass({
     componentDidMount() {
         var _this = this;
 
-        GlobalApp.on('updateSeason', function(data) {
+        globalApp.on('updateSeason', function(data) {
             _this.updateSeason(data);
         });
 
@@ -41,7 +43,7 @@ var App = React.createClass({
             <div className="claudio-pizarro">
                 <Header currentSeason={this.state.currentSeason}/>
                 <Menu/>
-                /* {React.cloneElement(this.props.children, {globalState: this.state})} */
+
                 {this.props.children}
                 <Footer/>
             </div>
