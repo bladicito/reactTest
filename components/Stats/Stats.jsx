@@ -1,11 +1,10 @@
 import React        from 'react';
-
 import GlobalApp    from 'ampersand-app';
 
 
 var Stats = React.createClass({
     updateSeason :function() {
-        GlobalApp.trigger('updateSeason', {currentSeason: '2015'});
+        GlobalApp.trigger('updateSeason', {currentSeason: 'season19'});
 
     },
     componentDidMount() {

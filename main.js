@@ -34,7 +34,13 @@ firebase.database().ref(globalApp.defaultSeason).once('value').then(function(sna
         matchesData         : seasonDataPulled.matches,
         currentClubColors   : Helpers.getClubColors(seasonDataPulled.club)
     });
-    
+
+    globalApp.on('updateCurrentSeason', function(data) {
+        globalApp.currentSeason.currentSeason = data.currentSeason;
+    });
+
+
+
     render(
         (
             <Router history={hashHistory}>

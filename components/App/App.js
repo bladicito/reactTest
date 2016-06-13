@@ -21,21 +21,9 @@ var App = React.createClass({
 
     },
 
-    updateSeason(data) {
-        this.state.currentSeason = data.currentSeason;
-
-        this.setState({
-            currentSeason: this.state.currentSeason
-        });
-    },
-
+    
     componentDidMount() {
-        var _this = this;
-
-        globalApp.on('updateSeason', function(data) {
-            _this.updateSeason(data);
-        });
-
+        
     },
 
     render: function() {
@@ -43,7 +31,6 @@ var App = React.createClass({
             <div className="claudio-pizarro">
                 <Header currentSeason={this.state.currentSeason}/>
                 <Menu/>
-
                 {this.props.children}
                 <Footer/>
             </div>
