@@ -40,7 +40,7 @@ firebase.database().ref(globalApp.defaultSeason).once('value').then(function(sna
     });
 
 
-
+    
     render(
         (
             <Router history={hashHistory}>
