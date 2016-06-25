@@ -1,10 +1,13 @@
-import React        from 'react';
-import GlobalApp    from 'ampersand-app';
+import React            from 'react';
+import GlobalApp        from 'ampersand-app';
+import ampersandMixin   from 'ampersand-react-mixin';
 
 
 var Stats = React.createClass({
+    mixins: [ampersandMixin],
+
     updateSeason :function() {
-        GlobalApp.trigger('updateSeason', {currentSeason: 'season19'});
+        GlobalApp.seasonData.currentSeason = 'season20';
 
     },
     componentDidMount() {

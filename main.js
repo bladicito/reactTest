@@ -11,6 +11,7 @@ import Helpers                          from './helpers';
 
 // to access global app via console. --> remove later.
 window.globalApp        = globalApp;
+
 globalApp.defaultSeason = 'season18';
 
 var config = {
@@ -22,10 +23,11 @@ var config = {
 
 
 firebase.initializeApp(config);
+
 firebase.database().ref(globalApp.defaultSeason).once('value').then(function(snapshot) {
     var seasonDataPulled = snapshot.val();
-
-    globalApp.currentSeason = new SeasonModel({
+    
+    globalApp.seasonData = new SeasonModel({
         currentSeason       : globalApp.defaultSeason,
         currentClub         : seasonDataPulled.club,
         currentClubCss      : seasonDataPulled.club.replace(' ', '-').toLowerCase(),
@@ -34,11 +36,6 @@ firebase.database().ref(globalApp.defaultSeason).once('value').then(function(sna
         matchesData         : seasonDataPulled.matches,
         currentClubColors   : Helpers.getClubColors(seasonDataPulled.club)
     });
-
-    globalApp.on('updateCurrentSeason', function(data) {
-        globalApp.currentSeason.currentSeason = data.currentSeason;
-    });
-
 
     
     render(

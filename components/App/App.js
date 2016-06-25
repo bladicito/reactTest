@@ -8,16 +8,15 @@ import SeasonModel      from '../../models/season';
 import ampersandMixin   from 'ampersand-react-mixin';
 
 
+console.log(globalApp);
 
 var App = React.createClass({
+    mixins: [ampersandMixin],
 
     render: function() {
-
-        const data = globalApp.currentSeason;
-        
         return (
             <div className="claudio-pizarro">
-                <Header currentSeason={data.currentSeason}/>
+                <Header seasonData={globalApp.seasonData}/>
                 <Menu/>
                 {this.props.children}
                 <Footer/>
