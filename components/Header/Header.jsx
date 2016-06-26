@@ -6,10 +6,12 @@ var Header = React.createClass( {
     mixins: [ampersandMixin],
 
     render() {
-        
+        const dataSeason = this.props.seasonData;
         return (
             <div className="component component-header">
-                <h1>Header Component {this.props.seasonData.currentSeason}</h1>
+                <div className="container">
+                    <h1>Header Component {this.props.seasonData.currentSeason}</h1>
+                </div>
             </div>
         )
     }

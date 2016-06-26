@@ -9,6 +9,8 @@ import globalApp                        from 'ampersand-app';
 import SeasonModel                      from './models/season';
 import Helpers                          from './helpers';
 
+
+
 // to access global app via console. --> remove later.
 window.globalApp        = globalApp;
 
